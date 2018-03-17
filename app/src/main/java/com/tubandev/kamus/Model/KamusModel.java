@@ -1,4 +1,4 @@
-package com.tubandev.kamus.model;
+package com.tubandev.kamus.Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -7,22 +7,22 @@ import android.os.Parcelable;
  * Created by sulistiyanto on 17/03/18.
  */
 
-public class KataModel implements Parcelable {
+public class KamusModel implements Parcelable {
 
     private int id;
     private String word;
     private String description;
 
-    public KataModel() {
+    public KamusModel() {
     }
 
-    public KataModel(int id, String word, String description) {
+    public KamusModel(int id, String word, String description) {
         this.id = id;
         this.word = word;
         this.description = description;
     }
 
-    public KataModel(String word, String description) {
+    public KamusModel(String word, String description) {
         this.word = word;
         this.description = description;
     }
@@ -64,21 +64,21 @@ public class KataModel implements Parcelable {
         dest.writeString(this.description);
     }
 
-    protected KataModel(Parcel in) {
+    protected KamusModel(Parcel in) {
         this.id = in.readInt();
         this.word = in.readString();
         this.description = in.readString();
     }
 
-    public static final Creator<KataModel> CREATOR = new Creator<KataModel>() {
+    public static final Creator<KamusModel> CREATOR = new Creator<KamusModel>() {
         @Override
-        public KataModel createFromParcel(Parcel source) {
-            return new KataModel(source);
+        public KamusModel createFromParcel(Parcel source) {
+            return new KamusModel(source);
         }
 
         @Override
-        public KataModel[] newArray(int size) {
-            return new KataModel[size];
+        public KamusModel[] newArray(int size) {
+            return new KamusModel[size];
         }
     };
 }

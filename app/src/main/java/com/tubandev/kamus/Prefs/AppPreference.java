@@ -1,4 +1,4 @@
-package com.tubandev.kamus.prefs;
+package com.tubandev.kamus.Prefs;
 
 import android.content.Context;
 import android.content.SharedPreferences;
