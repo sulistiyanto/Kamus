@@ -1,8 +1,9 @@
-package com.tubandev.kamus;
+package com.tubandev.kamus.UI;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +14,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.tubandev.kamus.Database.KamusHelper;
+import com.tubandev.kamus.Model.KamusModel;
+import com.tubandev.kamus.R;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    KamusHelper kamusHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +40,14 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        kamusHelper = new KamusHelper(this);
+        kamusHelper.open();
+
+        // Ambil semua data mahasiswa di database
+        ArrayList<KamusModel> kamusModels = kamusHelper.getAllData();
+        Log.d("asdfg", kamusModels.size() + "");
+        kamusHelper.close();
+
     }
 
     @Override
